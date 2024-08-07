@@ -9,13 +9,13 @@ router = APIRouter(prefix="/group_18",
 
 
 class ModelInput(BaseModel):
-        model_input: dict
+    model_input: dict
 
 
 @router.post("/predict")
 def invoke_model(InferenceInput: ModelInput):
     model, scaler = load_best_model_and_scaler(is_local_model=True)
-    
+
     input_json = InferenceInput.model_input
     df = pd.DataFrame.from_dict(input_json, orient="index").T
 
@@ -32,4 +32,3 @@ def invoke_model(InferenceInput: ModelInput):
         liver_disease = "No"
 
     return {"Liver Disease": liver_disease}
-

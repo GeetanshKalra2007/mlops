@@ -6,13 +6,11 @@ from Service import router
 # Step 1: Create a FastAPI app
 app = FastAPI()
 
-app.add_middleware(CORSMiddleware,
-                    allow_origins=["*"],
-                    allow_credentials=True,
-                    allow_methods=["*"],
-                    allow_headers=["*"],)
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
+                   allow_headers=["*"],)
 
 app.include_router(router.router)
+
 
 @app.get("/")
 async def root():
