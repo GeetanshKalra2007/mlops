@@ -45,7 +45,8 @@ def preprocess_data(df):
     )
 
     # Step 4: Fixing class imbalance using SMOTE
-    # The dataset is highly imbalanced, There are 416 patients with liver disease and 167 patients without liver disease.
+    # The dataset is highly imbalanced, There are 416 patients with liver disease and
+    # 167 patients without liver disease.
     sm = SMOTE(random_state=25, sampling_strategy=0.75)
     X_train, Y_train = sm.fit_resample(X_train, Y_train)
 
